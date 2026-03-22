@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>💖 胡鑫怡 · 💖</title>
+    <!-- 引入浪漫英文字体 & 优雅中文字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* 避免拖动文字，保留浪漫感 */
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ffdde1 0%, #ee9ca7 100%);
+            font-family: 'Quicksand', 'Segoe UI', 'PingFang SC', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* ---------- 漂浮爱心背景 (浪漫粒子) ---------- */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 90, 120, 0.65);
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            animation: floatUp 8s infinite ease-in;
+            box-shadow: 0 0 12px rgba(255, 80, 120, 0.6);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+            box-shadow: inherit;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: -10px;
+        }
+
+        /* 不同大小和颜色变种 */
+        .heart-small {
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 120, 150, 0.7);
+            animation-duration: 10s;
+        }
+        .heart-small::before,
+        .heart-small::after {
+            width: 14px;
+            height: 14px;
+        }
+        .heart-large {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 70, 100, 0.55);
+            animation-duration: 7s;
+        }
+        .heart-large::before,
+        .heart-large::after {
+            width: 32px;
+            height: 32px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(45deg) scale(0.8);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-120vh) rotate(45deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* 主卡片区域 - 毛玻璃浪漫风格 */
+        .love-card {
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(16px);
+            background: rgba(255, 245, 245, 0.45);
+            border-radius: 72px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.4) inset, 0 0 30px rgba(255, 80, 120, 0.5);
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 750px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: glowPulse 3s infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.5) inset, 0 0 20px rgba(255, 80, 120, 0.4);
+            }
+            100% {
+                box-shadow: 0 35px 65px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(255, 240, 240, 0.8) inset, 0 0 45px rgba(255, 100, 150, 0.8);
+            }
+        }
+
+        /* 主标题甜蜜装饰 */
+        .cute-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #fff0f0;
+            text-shadow: 0 4px 12px #c73b4e, 0 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 220, 220, 0.25);
+            padding: 8px 24px;
+            border-radius: 100px;
+            backdrop-filter: blur(4px);
+        }
+
+        .cute-title span {
+            font-size: 2.6rem;
+            animation: heartBeat 1.2s infinite ease;
+            display: inline-block;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); color: #ff4d6d; }
+        }
+
+        /* 核心数字区域 */
+        .counter-area {
+            margin: 25px 0 20px;
+        }
+
+        .love-number {
+            font-size: 7.5rem;
+            font-weight: 800;
+            font-family: 'Quicksand', monospace;
+            background: linear-gradient(135deg, #FFE6F0, #FFB6C1, #FF6F91);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 8px 20px rgba(255, 55, 95, 0.3);
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.34, 1.2, 0.64, 1);
+            letter-spacing: 6px;
+            line-height: 1.2;
+        }
+
+        /* 数字跳动动画 */
+        .number-pop {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 12px #ff98aa);
+        }
+
+        /* 表白主文案 */
+        .declaration {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            font-weight: bold;
+            margin: 15px 0 25px;
+            background: linear-gradient(145deg, #fff0f5, #ffd9e2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 8px rgba(255, 80, 110, 0.3);
+            letter-spacing: 2px;
+            word-break: keep-all;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .declaration .name {
+            background: rgba(255, 255, 240, 0.4);
+            padding: 0 12px;
+            border-radius: 60px;
+            backdrop-filter: blur(5px);
+            font-weight: 800;
+            color: #ff3b5c;
+            text-shadow: 0 0 2px white;
+        }
+
+        .sub-love {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff0f0;
+            background: rgba(199, 59, 78, 0.35);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 按钮组 - 浪漫风 */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .romantic-btn {
+            font-family: 'Quicksand', sans-serif;
+            background: rgba(255, 245, 245, 0.85);
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 60px;
+            color: #b43b4b;
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        .romantic-btn i {
+            font-style: normal;
+            font-size: 1.3rem;
+        }
+
+        .romantic-btn:hover {
+            transform: translateY(-4px);
+            background: #ffe4ec;
+            box-shadow: 0 12px 20px rgba(255, 70, 100, 0.4);
+            color: #c71f44;
+        }
+
+        .romantic-btn:active {
+            transform: translateY(2px);
+        }
+
+        /* 重置特殊爱心按钮 */
+        .reset-btn {
+            background: rgba(255, 220, 210, 0.9);
+            color: #bd3b55;
+        }
+
+        /* 底部footer 小浪漫 */
+        .footer-note {
+            margin-top: 35px;
+            font-size: 0.85rem;
+            color: #ffeef2;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-top: 1px dashed rgba(255, 200, 200, 0.7);
+            padding-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* 手机优化 */
+        @media (max-width: 600px) {
+            .love-card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 48px;
+            }
+            .love-number {
+                font-size: 4.5rem;
+                letter-spacing: 2px;
+            }
+            .declaration {
+                font-size: 2.2rem;
+            }
+            .cute-title {
+                font-size: 1.7rem;
+            }
+            .romantic-btn {
+                padding: 8px 20px;
+                font-size: 1rem;
+            }
+            .sub-love {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* 爱心闪烁点缀 */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            background: radial-gradient(circle, #ffb7c5, transparent);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0);}
+            50% { opacity: 0.8; transform: scale(1);}
+            100% { opacity: 0; transform: scale(0);}
+        }
+    </style>
+</head>
+<body>
+
+<!-- 漂浮爱心背景 -->
+<div class="floating-hearts" id="heartBg"></div>
+
+<!-- 闪烁星光随机点缀 (动态js生成几个亮点) -->
+<div id="sparkleContainer"></div>
+
+<!-- 主卡片 -->
+<div class="love-card">
+    <div class="cute-title">
+        <span>❤️</span> 这样是吧 <span>❤️</span>
+    </div>
+    <div class="counter-area">
+        <!-- 显示动态数字 -->
+        <div class="love-number" id="countDisplay">0</div>
+    </div>
+    <div class="declaration">
+        <span>✨</span> 
+        <span class="name">胡鑫怡</span> 
+        <span>💖 我爱你 💖</span>
+        <span>✨</span>
+    </div>
+    <div class="sub-love">
+        ♾️ 每秒爱意都在累积 · 每一刻都是心动 ♾️
+    </div>
+
+    <div class="button-group">
+        <button class="romantic-btn" id="pauseResumeBtn">
+            <i>⏸️</i> 暂停浪漫
+        </button>
+        <button class="romantic-btn reset-btn" id="resetBtn">
+            <i>🔄</i> 重新告白
+        </button>
+    </div>
+    <div class="footer-note">
+        <span>💗 从 0 开始，爱你永无止境 💗</span>
+        <span>🌸 胡鑫怡 · 专属浪漫 🌸</span>
+    </div>
+</div>
+
+<script>
+    // ---------- 核心逻辑 ----------
+    let currentCount = 0;          // 从0开始
+    let timer = null;
+    let isRunning = true;          // 计时器是否运行中
+    
+    // DOM 元素
+    const countDisplaySpan = document.getElementById('countDisplay');
+    const pauseResumeBtn = document.getElementById('pauseResumeBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    
+    // 数字变化动画
+    function addNumberAnimation() {
+        if (!countDisplaySpan) return;
+        countDisplaySpan.classList.add('number-pop');
+        setTimeout(() => {
+            countDisplaySpan.classList.remove('number-pop');
+        }, 180);
+    }
+    
+    // 更新显示的数字 + 让蝴蝶特效
+    function updateDisplay() {
+        if (countDisplaySpan) {
+            // 加上千位分隔风格 保持清晰
+            countDisplaySpan.innerText = currentCount;
+            addNumberAnimation();  // 每次数字变化都有弹动效果
+        }
+        // 可选: 修改页面title (小浪漫)
+        document.title = `❤️ ${currentCount} · 胡鑫怡我爱你 ❤️`;
+    }
+    
+    // 增加计数 (循环累加)
+    function incrementCount() {
+        currentCount++;
+        updateDisplay();
+        // 每增加一次，可以产生极细微的心动粒子(浪漫细节)
+        createMiniHeartBurst();
+    }
+    
+    // 微小爱心特效 (每增加一次数字，在数字附近产生短暂粒子)
+    function createMiniHeartBurst() {
+        if (!countDisplaySpan) return;
+        const rect = countDisplaySpan.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        for (let i = 0; i < 3; i++) {
+            const heartEmoji = document.createElement('div');
+            heartEmoji.innerText = '❤️';
+            heartEmoji.style.position = 'fixed';
+            heartEmoji.style.left = x + (Math.random() - 0.5) * 40 + 'px';
+            heartEmoji.style.top = y + (Math.random() - 0.5) * 30 + 'px';
+            heartEmoji.style.fontSize = '1.2rem';
+            heartEmoji.style.pointerEvents = 'none';
+            heartEmoji.style.zIndex = '999';
+            heartEmoji.style.opacity = '0.9';
+            heartEmoji.style.filter = 'drop-shadow(0 0 4px #ff4d6d)';
+            heartEmoji.style.transition = 'all 0.6s ease-out';
+            document.body.appendChild(heartEmoji);
+            // 动画飘升消失
+            setTimeout(() => {
+                heartEmoji.style.transform = `translateY(-40px) scale(1.5)`;
+                heartEmoji.style.opacity = '0';
+                setTimeout(() => heartEmoji.remove(), 600);
+            }, 10);
+        }
+    }
+    
+    // 开始计时器 (确保不重复开启)
+    function startTimer() {
+        if (timer) return; // 已有timer则不再新开
+        timer = setInterval(() => {
+            if (isRunning) {
+                incrementCount();
+            }
+        }, 1000); // 每秒递增 1，浪漫稳定的节奏
+    }
+    
+    // 停止计时器
+    function stopTimer() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+    
+    // 暂停 / 继续逻辑
+    function togglePauseResume() {
+        if (isRunning) {
+            // 当前是运行状态 -> 暂停
+            isRunning = false;
+            pauseResumeBtn.innerHTML = '<i>▶️</i> 继续爱你';
+            // 界面微提示（可选）
+            addFloatingTip('💔 暂停计数，但爱永不停歇 💔');
+        } else {
+            // 恢复运行
+            isRunning = true;
+            pauseResumeBtn.innerHTML = '<i>⏸️</i> 暂停浪漫';
+            addFloatingTip('💖 爱意继续累积，胡鑫怡我爱你 💖');
+        }
+        // 确保计时器存在 (如果在暂停前已经stop? 但正常逻辑开始就会有timer)
+        if (!timer) {
+            startTimer();
+        }
+    }
+    
+    // 显示一个短暂飘浮提示 (浪漫气泡)
+    function addFloatingTip(msg) {
+        const tip = document.createElement('div');
+        tip.innerText = msg;
+        tip.style.position = 'fixed';
+        tip.style.bottom = '20%';
+        tip.style.left = '50%';
+        tip.style.transform = 'translateX(-50%)';
+        tip.style.backgroundColor = 'rgba(255, 200, 210, 0.9)';
+        tip.style.backdropFilter = 'blur(12px)';
+        tip.style.color = '#b13e55';
+        tip.style.padding = '8px 20px';
+        tip.style.borderRadius = '60px';
+        tip.style.fontWeight = 'bold';
+        tip.style.fontSize = '0.9rem';
+        tip.style.fontFamily = "'Quicksand', sans-serif";
+        tip.style.zIndex = '1000';
+        tip.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
+        tip.style.pointerEvents = 'none';
+        tip.style.whiteSpace = 'nowrap';
+        tip.style.border = '1px solid rgba(255,255,200,0.7)';
+        document.body.appendChild(tip);
+        setTimeout(() => {
+            tip.style.opacity = '0';
+            tip.style.transition = 'opacity 0.4s';
+            setTimeout(() => tip.remove(), 500);
+        }, 1500);
+    }
+    
+    // 重置计数器 (从0开始)
+    function resetCounter() {
+        // 重置计数变量
+        const wasRunning = isRunning;  // 记住当前运行状态
+        
+        // 如果正在运行，重置时仍要保持自动循环（重置后自动开始计数）——浪漫重置当然是继续累加
+        // 但按照正常预期，重置后数字归零且计时器持续累加（如果暂停状态，重置后也应该自动开始，不然不符合“从0开始循环”的持续感）
+        // 为了符合用户期待：无论暂停/运行，重置后清0，并且开始自动循环（确保计数器在跑）
+        if (timer) {
+            stopTimer();
+        }
+        // 重置全局计数
+        currentCount = 0;
+        updateDisplay();
+        // 重置状态为运行
+        isRunning = true;
+        pauseResumeBtn.innerHTML = '<i>⏸️</i> 暂停浪漫';
+        // 重新启动计时器 (确保计数继续)
+        startTimer();
+        
+        // 浪漫重置特效：掉落花瓣般爱心雨
+        for (let i = 0; i < 12; i++) {
+            setTimeout(() => {
+                createResetHeartSpark();
+            }, i * 60);
+        }
+        addFloatingTip('✨ 爱意重启 · 从零开始，依然是你 ✨');
+    }
+    
+    // 重置时的额外浪漫爱心特效
+    function createResetHeartSpark() {
+        const heartDiv = document.createElement('div');
+        heartDiv.innerHTML = '💗';
+        heartDiv.style.position = 'fixed';
+        heartDiv.style.left = Math.random() * window.innerWidth + 'px';
+        heartDiv.style.top = '90%';
+        heartDiv.style.fontSize = (Math.random() * 20 + 16) + 'px';
+        heartDiv.style.opacity = '0.8';
+        heartDiv.style.pointerEvents = 'none';
+        heartDiv.style.zIndex = '999';
+        heartDiv.style.transition = 'all 1.5s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+        document.body.appendChild(heartDiv);
+        setTimeout(() => {
+            heartDiv.style.transform = `translateY(-${window.innerHeight * 0.6}px) rotate(20deg)`;
+            heartDiv.style.opacity = '0';
+            setTimeout(() => heartDiv.remove(), 1500);
+        }, 20);
+    }
+    
+    // ---------- 背景浮动爱心生成器 (浪漫无穷) ----------
+    function generateFloatingHearts() {
+        const container = document.getElementById('heartBg');
+        if (!container) return;
+        const heartCount = 28;  // 爱心数量适中
+        for (let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            const sizeClass = Math.random() > 0.7 ? 'heart-large' : (Math.random() > 0.5 ? 'heart' : 'heart-small');
+            heart.className = `heart ${sizeClass}`;
+            // 随机左右位置
+            const leftPos = Math.random() * 100;
+            heart.style.left = leftPos + '%';
+            heart.style.bottom = -Math.random() * 100 + 'px';
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.animationDuration = Math.random() * 6 + 6 + 's';
+            heart.style.opacity = Math.random() * 0.6 + 0.2;
+            container.appendChild(heart);
+        }
+    }
+    
+    // 生成闪烁星光背景 (浪漫点缀)
+    function generateSparkles() {
+        const sparkContainer = document.getElementById('sparkleContainer');
+        if (!sparkContainer) return;
+        for (let i = 0; i < 70; i++) {
+            const star = document.createElement('div');
+            star.className = 'sparkle';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = Math.random() * 2 + 2 + 's';
+            star.style.width = Math.random() * 6 + 2 + 'px';
+            star.style.height = star.style.width;
+            sparkContainer.appendChild(star);
+        }
+    }
+    
+    // 页面可见性变化时，依然保持优雅（如果页面后台，计时器节流无需额外处理，但保证恢复时继续）
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            // 页面隐藏时不做额外操作，保持timer继续，但浏览器会节流setInterval，无伤大雅
+        } else {
+            // 恢复显示时，加一个小动画提示爱意仍在继续
+            if (isRunning) {
+                addFloatingTip('🌸 爱意持续升温，胡鑫怡我爱你 🌸');
+            }
+        }
+    }
+    
+    // 添加鼠标/触摸心形跟随 (可选浪漫小彩蛋)
+    function addHeartTrail() {
+        let lastX = 0, lastY = 0;
+        let throttleTimer = null;
+        document.addEventListener('mousemove', (e) => {
+            if (throttleTimer) return;
+            throttleTimer = setTimeout(() => {
+                const x = e.clientX;
+                const y = e.clientY;
+                if (Math.hypot(x - lastX, y - lastY) > 30) {
+                    lastX = x;
+                    lastY = y;
+                    const trailHeart = document.createElement('div');
+                    trailHeart.innerText = '💕';
+                    trailHeart.style.position = 'fixed';
+                    trailHeart.style.left = x + 'px';
+                    trailHeart.style.top = y + 'px';
+                    trailHeart.style.fontSize = '20px';
+                    trailHeart.style.pointerEvents = 'none';
+                    trailHeart.style.zIndex = '9999';
+                    trailHeart.style.transform = 'translate(-50%, -50%)';
+                    trailHeart.style.opacity = '0.7';
+                    trailHeart.style.transition = 'all 0.7s ease';
+                    document.body.appendChild(trailHeart);
+                    setTimeout(() => {
+                        trailHeart.style.opacity = '0';
+                        trailHeart.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                        setTimeout(() => trailHeart.remove(), 600);
+                    }, 50);
+                }
+                throttleTimer = null;
+            }, 60);
+        });
+    }
+    
+    // ---------- 页面初始化 & 优雅清理 ----------
+    function init() {
+        generateFloatingHearts();
+        generateSparkles();
+        addHeartTrail();     // 鼠标轨迹小爱心（浪漫氛围）
+        // 初始显示0，表白文字已经存在
+        currentCount = 0;
+        updateDisplay();
+        // 启动计时器（从0开始循环递增）
+        startTimer();
+        // 绑定事件
+        if (pauseResumeBtn) pauseResumeBtn.addEventListener('click', togglePauseResume);
+        if (resetBtn) resetBtn.addEventListener('click', resetCounter);
+        
+        // 页面关闭前清除定时器（避免后台残留）
+        window.addEventListener('beforeunload', () => {
+            if (timer) clearInterval(timer);
+        });
+        
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        // 增加温柔的心跳背景音乐提醒？不加自动音乐以免浏览器策略，用视觉浪漫完全足够
+        // 控制台输出浪漫宣言
+        console.log('%c💗 胡鑫怡，我爱你 💗 从0开始，永恒循环，每次心跳都是你！', 'color: #ff4d6d; font-size: 16px; font-weight: bold;');
+        addFloatingTip('💗 爱之旅程从0开始，每一秒都是“胡鑫怡我爱你” 💗');
+    }
+    
+    // 启动一切
+    init();
+</script>
+</body>
+</html>
+```
